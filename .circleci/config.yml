@@ -65,7 +65,8 @@ jobs:
    
     steps:
     
-      - run: return 1
+      - run: exit 1
+
       - run:  #watch out for the alignment of these  paarameters 
 
           name:  fail on purpose 
