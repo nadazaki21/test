@@ -13,7 +13,10 @@ commands:
 
     steps:
 
-    - run: echo <<parameters.var>>    
+    - run: echo <<parameters.var>>  
+
+
+
 
 jobs:
   say-hello:
@@ -51,7 +54,7 @@ jobs:
     steps:
 
     - print_pipeline_id:
-      var: $CIRCLE_WORKFLOW_ID
+        var: $CIRCLE_WORKFLOW_ID
 
 
 workflows:
@@ -61,6 +64,7 @@ workflows:
       - print-outputfile :
           requires: 
              - say-hello
+      - print-var
 
 
 
