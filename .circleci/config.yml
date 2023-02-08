@@ -2,6 +2,7 @@
 version: 2.1
 
 commands:
+
   print_pipeline_id:
     description: "printing the pipleline id "
     parameters:
@@ -12,7 +13,7 @@ commands:
 
     steps:
 
-    -run: echo <<parameters.var>>    
+    - run: echo <<parameters.var>>    
 
 jobs:
   say-hello:
