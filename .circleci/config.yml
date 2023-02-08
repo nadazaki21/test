@@ -8,7 +8,7 @@ commands:
     parameters:
       var:
         type: string
-        deafault: "not enetered "
+        default: "not enetered "
 
 
     steps:
