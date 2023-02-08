@@ -39,12 +39,13 @@ jobs:
       - image: cimg/base:stable
    
     steps:
-     
-      - run:  cat ~/output.txt
-    
       - attach_workspace:
          at: ~/
 
+     
+      - run:  cat ~/output.txt
+    
+      
 
   print-var:
 
