@@ -56,6 +56,22 @@ jobs:
 
     - print_pipeline_id:
         var: $CIRCLE_WORKFLOW_ID
+  
+
+  fail:
+
+    docker:
+      - image: cimg/base:stable
+   
+    steps:
+    
+     
+      - run: 
+        name: " fail on purpose to test when: on_fail " 
+        command: return 1
+        when: on_fail
+      
+
 
 
 workflows:
@@ -66,6 +82,7 @@ workflows:
           requires: 
              - say-hello
       - print-var
+      - fail
 
 
 
