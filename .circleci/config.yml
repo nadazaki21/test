@@ -13,7 +13,7 @@ commands:
 
     steps:
 
-    - run: echo <<parameters.var>>  
+      - run: echo <<parameters.var>>  
 
 
 
@@ -50,12 +50,12 @@ jobs:
   print-var:
 
     docker:
-      - image: cimg/base:stable   
+      - image: circleci/node:13.8.0 
 
     steps:
 
-    - print_pipeline_id:
-        var: $CIRCLE_WORKFLOW_ID
+      - print_pipeline_id:
+          var: $CIRCLE_WORKFLOW_ID
   
 
   fail:
@@ -76,7 +76,7 @@ jobs:
 
 
 workflows:
-  say-hello-workflow:
+  test:
     jobs:
       - say-hello
       - print-outputfile :
