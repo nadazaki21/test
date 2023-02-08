@@ -66,8 +66,9 @@ jobs:
     steps:
     
      
-      - run: 
-        name: " fail on purpose to test when: on_fail " 
+      - run:
+
+        name:  fail on purpose 
         command: return 1
         when: on_fail
       
