@@ -40,7 +40,7 @@ jobs:
    
     steps:
      
-      - run:  cat output.txt
+      - run:  cat ~/output.txt
     
       - attach_workspace:
          at: ~/
