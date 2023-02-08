@@ -65,11 +65,11 @@ jobs:
    
     steps:
     
-     
-      - run:
+      - run: return 1
+      - run:  #watch out for the alignment of these  paarameters 
 
           name:  fail on purpose 
-          command: return 1
+          command: echo "when:on_fail works !"
           when: on_fail
         
 
