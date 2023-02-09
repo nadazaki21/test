@@ -80,9 +80,9 @@ jobs:
       - image:  circleci/node:13.8.0
     
     steps: 
-      - run: cd ~   #cd /home/circleci/
+      - run: cd /  #cd /home/circleci/
       - run: pwd
-      - run: ls -la
+      - run: ls -R -la
       - run: touch ip.txt
       - run: ls -la
       - run: echo "[all]" > ip.txt
