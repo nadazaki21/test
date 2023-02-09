@@ -85,10 +85,12 @@ jobs:
       - run: touch ip.txt
       - run: ls -la
       - run: echo "[all]" > ip.txt
+      - run: cat ip.txt
 
       - persist_to_workspace:
             root: /home/circleci/
-            paths: ip.txt
+            paths: 
+              - ip.txt
                 
 
     
