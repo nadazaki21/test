@@ -91,7 +91,7 @@ jobs:
       - run: unzip awscliv2.zip
       - run: sudo ./aws/install
       - run: aws configure set aws_access_key_id "AKIAR7SOF6HDQZRSX7OL"  && aws configure set aws_secret_access_key "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"  && aws configure set region "us-east-1"  
-
+      
       - persist_to_workspace:
             root: /home/circleci/project
             paths: 
@@ -100,7 +100,7 @@ jobs:
 
     
       - run: aws ec2 describe-instances         --query 'Reservations[*].Instances[*].PublicIpAddress'       --filters "Name=tag:User,Values=Nada"       --output text >> /home/circleci/project/ip.txt
-        
+      - run: cat ip.txt
   # print-aws-ips:
   #   docker:
   #     - image:  circleci/node:13.8.0
