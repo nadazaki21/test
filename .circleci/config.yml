@@ -75,16 +75,18 @@ jobs:
 
 
   get-aws-ips:
-  
+
     docker:
       - image:  circleci/node:13.8.0
-
-    - persist_to_workspace:
-          root: ~/
-          paths:
-            - output.txt  
-
+    
     steps: 
+
+      - persist_to_workspace:
+            root: ~/
+            paths:
+              - output.txt  
+
+    
       - run: aws ec2 describe-instances         --query 'Reservations[*].Instances[*].PublicIpAddress'       --filters "Name=tag:User,Values=Nada"       --output text >> ~/output.txt
         
   print-aws-ips:
@@ -93,8 +95,8 @@ jobs:
     
     steps: 
 
-    - attach_workspace:
-         at: ~/
+      - attach_workspace:
+          at: ~/
 
      
       - run:  cat ~/output.txt 
