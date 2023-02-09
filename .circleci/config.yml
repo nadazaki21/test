@@ -80,7 +80,8 @@ jobs:
       - image:  circleci/node:13.8.0
     
     steps: 
-      - run: cd /home/circleci/
+      - run: cd ~   #cd /home/circleci/
+      - run: pwd
       - run: ls -la
       - run: touch ip.txt
       - run: ls -la
@@ -93,13 +94,13 @@ jobs:
       - run: aws configure set aws_access_key_id "AKIAR7SOF6HDQZRSX7OL"  && aws configure set aws_secret_access_key "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"  && aws configure set region "us-east-1"  
       
       - persist_to_workspace:
-            root: /home/circleci/project
+            root:  ~/ #/home/circleci/project
             paths: 
               - ip.txt
                 
 
     
-      - run: aws ec2 describe-instances         --query 'Reservations[*].Instances[*].PublicIpAddress'       --filters "Name=tag:User,Values=Nada"       --output text >> /home/circleci/project/ip.txt
+      #- run: aws ec2 describe-instances         --query 'Reservations[*].Instances[*].PublicIpAddress'       --filters "Name=tag:User,Values=Nada"       --output text >> /home/circleci/project/ip.txt
       - run: cat ip.txt
   # print-aws-ips:
   #   docker:
