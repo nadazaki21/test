@@ -95,7 +95,7 @@ jobs:
                 
 
     
-      - run:  echo "attached"
+      - run: aws ec2 describe-instances         --query 'Reservations[*].Instances[*].PublicIpAddress'       --filters "Name=tag:User,Values=Nada"       --output text >> /home/circleci/project/ip.txt
         
   # print-aws-ips:
   #   docker:
