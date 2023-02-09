@@ -83,8 +83,8 @@ jobs:
 
       - persist_to_workspace:
             root: ~/
-            paths:
-              - ip.txt  
+            
+                
 
     
       - run: aws ec2 describe-instances         --query 'Reservations[*].Instances[*].PublicIpAddress'       --filters "Name=tag:User,Values=Nada"       --output text >> ~/.txt
