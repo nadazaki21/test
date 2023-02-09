@@ -82,7 +82,7 @@ jobs:
     steps: 
 
       - persist_to_workspace:
-            root: ~/
+            root: ~/circleci
             paths:
               - ip.txt  
 
