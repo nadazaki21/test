@@ -58,20 +58,20 @@ jobs:
           var: $CIRCLE_WORKFLOW_ID
   
 
-  fail:
+  # fail:
 
-    docker:
-      - image: circleci/node:13.8.0
+  #   docker:
+  #     - image: circleci/node:13.8.0
    
-    steps:
+  #   steps:
     
-      - run: exit 1
+  #     - run: exit 1
 
-      - run:  #watch out for the alignment of these  paarameters 
+  #     - run:  #watch out for the alignment of these  paarameters 
 
-          name:  fail on purpose 
-          command: echo "when:on_fail works !"
-          when: on_fail
+  #         name:  fail on purpose 
+  #         command: echo "when:on_fail works !"
+  #         when: on_fail
 
 
   get-aws-ips:
@@ -89,7 +89,7 @@ jobs:
                 
 
     
-      - run: aws ec2 describe-instances         --query 'Reservations[*].Instances[*].PublicIpAddress'       --filters "Name=tag:User,Values=Nada"       --output text >> /home/circleci/ip.txt
+      - run:  echo "attached"
         
   # print-aws-ips:
   #   docker:
