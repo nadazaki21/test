@@ -83,6 +83,7 @@ jobs:
       - run: cd /home/circleci/
       - run: ls -la
       - run: touch ip.txt
+      - run: ls -la
       - run: echo "[all]" > ip.txt
 
       - persist_to_workspace:
