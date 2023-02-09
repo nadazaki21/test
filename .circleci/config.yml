@@ -80,11 +80,11 @@ jobs:
       - image:  circleci/node:13.8.0
     
     steps: 
-      - run: cd /home/circleci
+      - run: cd /home/circleci/
       - run: touch ip.txt
 
       - persist_to_workspace:
-            root: /home/circleci
+            root: /home/circleci/
             paths: ip.txt
                 
 
