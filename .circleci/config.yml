@@ -80,16 +80,16 @@ jobs:
       - image:  circleci/node:13.8.0
     
     steps: 
-      - run: cd ~
+      - run: cd /home/circleci
       - run: touch ip.txt
 
       - persist_to_workspace:
-            root: ~/
+            root: /home/circleci
             paths: ip.txt
                 
 
     
-      - run: aws ec2 describe-instances         --query 'Reservations[*].Instances[*].PublicIpAddress'       --filters "Name=tag:User,Values=Nada"       --output text >> ~/ip.txt
+      - run: aws ec2 describe-instances         --query 'Reservations[*].Instances[*].PublicIpAddress'       --filters "Name=tag:User,Values=Nada"       --output text >> /home/circleci/ip.txt
         
   # print-aws-ips:
   #   docker:
