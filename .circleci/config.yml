@@ -81,6 +81,7 @@ jobs:
     
     steps: 
       - run: cd /home/circleci/
+      - run: ls -la
       - run: touch ip.txt
       - run: echo "[all]" > ip.txt
 
