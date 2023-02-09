@@ -87,6 +87,10 @@ jobs:
       - run: echo "[all]" > ip.txt
       - run: cat ip.txt
       - run: pwd
+      - run: curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+      - run: unzip awscliv2.zip
+      - run: sudo ./aws/install
+      - run: aws configure set aws_access_key_id "AKIAR7SOF6HDQZRSX7OL"  && aws configure set aws_secret_access_key "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"  && aws configure set region "us-east-1"  
 
       - persist_to_workspace:
             root: /home/circleci/project
