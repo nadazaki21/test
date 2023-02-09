@@ -108,7 +108,7 @@ workflows:
       - say-hello
       - print-outputfile :
           requires: 
-             - say-hello
+            - say-hello
       - print-var
       - fail
       - get-aws-ips
