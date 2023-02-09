@@ -112,7 +112,7 @@ workflows:
           requires: 
             - say-hello
       - print-var
-      - fail
+      # - fail
       - get-aws-ips
       # - print-aws-ips:
       #     requires:
