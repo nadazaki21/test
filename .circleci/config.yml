@@ -113,8 +113,8 @@ workflows:
       - fail
       - get-aws-ips
       - print-aws-ips:
-        requires:
-          - get-aws-ips
+          requires:
+            - get-aws-ips
 
 
 
