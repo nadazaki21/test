@@ -61,7 +61,7 @@ jobs:
   fail:
 
     docker:
-      - image: cimg/base:stable
+      - image: circleci/node:13.8.0
    
     steps:
     
@@ -72,8 +72,31 @@ jobs:
           name:  fail on purpose 
           command: echo "when:on_fail works !"
           when: on_fail
-        
 
+
+  get-aws-ips:
+    docker:
+      - image:  circleci/node:13.8.0
+
+    - persist_to_workspace:
+          root: ~/
+          paths:
+            - output.txt  
+
+    steps: 
+      - run: aws ec2 describe-instances         --query 'Reservations[*].Instances[*].PublicIpAddress'       --filters "Name=tag:User,Values=Nada"       --output text >> ~/output.txt
+        
+  print-aws-ips:
+    docker:
+      - image:  circleci/node:13.8.0
+    
+    steps: 
+
+    - attach_workspace:
+         at: ~/
+
+     
+      - run:  cat ~/output.txt 
 
 
 workflows:
@@ -85,6 +108,10 @@ workflows:
              - say-hello
       - print-var
       - fail
+      - get-aws-ips
+      - print-aws-ips:
+        requires:
+          -get-aws-ips
 
 
 
