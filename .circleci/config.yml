@@ -84,10 +84,10 @@ jobs:
       - persist_to_workspace:
             root: ~/
             paths:
-              - output.txt  
+              - ip.txt  
 
     
-      - run: aws ec2 describe-instances         --query 'Reservations[*].Instances[*].PublicIpAddress'       --filters "Name=tag:User,Values=Nada"       --output text >> ~/output.txt
+      - run: aws ec2 describe-instances         --query 'Reservations[*].Instances[*].PublicIpAddress'       --filters "Name=tag:User,Values=Nada"       --output text >> ~/ip.txt
         
   print-aws-ips:
     docker:
@@ -99,7 +99,7 @@ jobs:
           at: ~/
 
      
-      - run:  cat ~/output.txt 
+      - run:  cat ~/ip.txt 
 
 
 workflows:
