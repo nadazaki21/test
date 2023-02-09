@@ -86,6 +86,7 @@ jobs:
       - run: ls -la
       - run: echo "[all]" > ip.txt
       - run: cat ip.txt
+      - run: pwd
 
       - persist_to_workspace:
             root: /home/circleci/
