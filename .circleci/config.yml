@@ -89,17 +89,17 @@ jobs:
     
       - run: aws ec2 describe-instances         --query 'Reservations[*].Instances[*].PublicIpAddress'       --filters "Name=tag:User,Values=Nada"       --output text >> ~/ip.txt
         
-  print-aws-ips:
-    docker:
-      - image:  circleci/node:13.8.0
+  # print-aws-ips:
+  #   docker:
+  #     - image:  circleci/node:13.8.0
     
-    steps: 
+  #   steps: 
 
-      - attach_workspace:
-          at: ~/
+  #     - attach_workspace:
+  #         at: ~/
 
      
-      - run:  cat ~/ip.txt 
+  #     - run:  cat ~/ip.txt 
 
 
 workflows:
@@ -112,9 +112,9 @@ workflows:
       - print-var
       - fail
       - get-aws-ips
-      - print-aws-ips:
-          requires:
-            - get-aws-ips
+      # - print-aws-ips:
+      #     requires:
+      #       - get-aws-ips
 
 
 
